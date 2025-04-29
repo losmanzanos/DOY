@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keep Going...</title>
+  <!-- Load two complementary fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 5rem 3rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .text-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Heading font */
+    .day-container h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin: 0 0 1rem 0;
+    }
+
+    /* Paragraph font */
+    .text-content p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      max-width: 400px;
+      line-height: 1.6;
+      margin-top: 1.5rem;
+      letter-spacing: 0.5px;
+      text-transform: none; /* No forced uppercase for the softer vibe */
+    }
+
+    .background-illustration {
+      position: absolute;
+      top: 0;
+      right: -200px;
+      width: 900px;
+      height: auto;
+      opacity: 0.9;
+      transform: rotate(-90deg);
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <div class="text-content">
+    <div class="day-container">
+      <h1 id="dayOfYear">Today is day: ...</h1>
+      <p>Keep going. You've made it this far...</p>
+    </div>
+  </div>
+
+  <img src="https://i.ebayimg.com/images/g/14EAAOSwrTBiunnz/s-l1200.jpg" alt="Tentacle Cloud" class="background-illustration">
+</main>
+
+<script>
+  const today = new Date();
+  const startOfYear = new Date(today.getFullYear(), 0, 0);
+  const diff = today - startOfYear;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const dayOfYear = Math.floor(diff / oneDay);
+
+  document.getElementById('dayOfYear').textContent = `Today is day: ${dayOfYear}`;
+</script>
+
+</body>
+</html>
